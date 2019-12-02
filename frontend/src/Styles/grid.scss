@@ -1,0 +1,22 @@
+.layout-grid{
+    display: grid;
+    grid-template: 95px 100vh / 7% 93% ; // columns  /  rows
+    grid-template-areas: "header header"
+                         "nav content";
+    
+}
+
+.layout-grid-header{
+    grid-area: header;
+    z-index: 5;
+}
+
+.layout-grid-nav{
+    grid-area: nav;
+    z-index: 5;
+}
+
+.layout-grid-container{
+    grid-area: content;
+    z-index: 4;
+}

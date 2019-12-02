@@ -1,0 +1,20 @@
+.nav-itxt{
+    font-size: 60px;
+    margin-left: 10px !important;
+}
+
+.display-nav{
+    display: flex;
+    align-content: center;
+}
+
+.nav-item{
+    margin-top: 30px;
+    user-select: none;
+}
+
+.nav-item{
+    [class^="icon-"], [class*=" icon-"]{
+        text-align: center;
+    }
+}
