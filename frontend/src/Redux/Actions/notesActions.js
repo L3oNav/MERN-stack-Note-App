@@ -18,7 +18,7 @@ export const getNotes = () => async (dispatch) => {
         type: loadingNotesType
     });
     try {
-        const res = await axios.get('http://localhost:4000/api/notes');
+        const res = await axios.get('http://167.71.115.255:4000/api/notes');
         dispatch({
             type: getNotesType,
             payload: res.data
@@ -40,7 +40,7 @@ export const getNote = id => async dispatch => {
         type: loadingNoteType
     });
     try {
-        const res = await axios.get(`http://localhost:4000/api/notes/${id}`);
+        const res = await axios.get('http://167.71.115.255:4000/api/notes/'+id);
         dispatch({
             type: getNoteType,
             payload: res.data
@@ -59,7 +59,7 @@ export const createNote = data => async dispatch => {
         type: loadingNoteType
     });
     try {
-        const res = await axios.post('http://localhost:4000/api/notes/', data);
+        const res = await axios.post('http://167.71.115.255:4000/api/notes/', data);
         dispatch({
             type: createNoteType,
             payload: res.data
@@ -78,10 +78,7 @@ export const deleteNote = id => async dispatch => {
         type: loadingNoteType
     });
     try {
-        const res = await axios({
-            method: 'delete',
-            url: `http://localhost:4000/api/notes/${id}`
-        });
+        const res = await axios.delete('http://167.71.115.255:4000/api/notes/'+id);
         dispatch({
             type: deleteNoteSuccessType,
         })
@@ -99,7 +96,7 @@ export const editNote = (data, id) => async dispatch => {
         type: loadingEditType
     });
     try {
-        const res = await axios(`http://localhost:4000/api/notes/${id}`, data);
+        const res = await axios('http://167.71.115.255:4000/api/notes/'+id, data);
         dispatch({
             type: editNote,
             payload: res.data

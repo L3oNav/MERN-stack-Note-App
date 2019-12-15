@@ -14,7 +14,7 @@ export const getUsers = () => async (dispatch) => {
         type: loadingUsersType,
     })
     try { 
-        const res = await axios.get('http://localhost:4000/api/users/');
+        const res = await axios.get('http://167.71.115.255:4000/api/users/');
         dispatch({
             type: getUsersType,
             payload: res.data
@@ -37,7 +37,7 @@ export const createUser = username => async (dispatch) => {
         console.log(username);
         await axios({
             method:'POST',
-            url:'http://localhost:4000/api/users/',
+            url:'http://167.71.115.255:4000/api/users/',
             data: {
                 username:username
             }
@@ -61,10 +61,7 @@ export const deleteUser = id => async dispatch => {
         type: loadingUsersType
     });
     try {
-        await axios({
-            method: 'delete',
-            url: `http://localhost:4000/api/users/${id}`
-        });
+        await axios.delete('http://167.71.115.255:4000/api/users/'+id);
         dispatch({
             type: deleteUserSuccessType,
         })
@@ -82,10 +79,7 @@ export const getUser = id => async dispatch => {
         type: loadingUsersType
     });
     try {
-        await axios({
-            method: 'get',
-            url: `http://localhost:4000/api/users/${id}`
-        });
+        await axios.get('http://167.71.115.255:4000/api/users/'+id);
 
         dispatch({
             type: getUserType,
